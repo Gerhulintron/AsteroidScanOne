@@ -14,7 +14,7 @@ class AsteroidUI:
 
 		self.titleLabel = Label(self.topFrame, text="Asteroid Tracker")
 		self.instructionLabel = Label(self.topFrame, text="Enter a Date: ")
-		self.dateLabel = Label(self.topFrame, text="dd/mm/yy", justify=CENTER)
+		self.dateLabel = Label(self.topFrame, text="dd/mm/yyyy", justify=CENTER)
 		
 #		self.asteroidMenu = ttk.Combobox(master)
 

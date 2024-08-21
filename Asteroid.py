@@ -1,5 +1,5 @@
 class Asteroid:
-	def __init__(self, asteroidName,orbitingBody, potentialHazard, closeApproachDate,estDimMinM,estDimMaxM,kilometers_per_second,missDistKM):		
+	def __init__(self, asteroidName,orbitingBody, potentialHazard, closeApproachDate,estDimMinM,estDimMaxM,kilometers_per_second,missDistKM, asteroidColour):
 		self.asteroidName = asteroidName 
 		self.orbitingBody = orbitingBody 
 		self.potentialHazard = potentialHazard
@@ -11,6 +11,7 @@ class Asteroid:
 		self.estDimAvgM = round(((self.estDimMaxM - self.estDimMinM)/2 + self.estDimMinM), 2)
 		self.kilometers_per_second = kilometers_per_second
 		self.missDistKM = missDistKM
+		self.asteroidColour = asteroidColour
 		print("***Asteroid Created***")
 		
 	def ToString(self):
@@ -24,15 +25,26 @@ class Asteroid:
 		asteroidToString = asteroidToString + "Estimated Diatmeter Average(M):\t" + str(self.estDimAvgM) + " M\n"
 		asteroidToString = asteroidToString + "Kilometers per second:\t\t" + str(self.kilometers_per_second) + "\n"
 		asteroidToString = asteroidToString + "Miss Distance(KM):\t\t\t" + str(self.missDistKM) + " KM\n"
+		asteroidToString = asteroidToString + "Asteroid Colour:\t\t\t" + str(self.asteroidColour) + "\n"
 		return asteroidToString
-		
+
+	def lengthTabCheck(self, string, length):
+		if(len(string) > length):
+			return string+"\t\t|"
+		elif(len(string) < length - 6):
+			return string+"\t\t\t\t|"
+		else:
+			return string+"\t\t\t|"
+
 	def ToRow(self):
-		return str(self.asteroidName + "\t\t|" + self.orbitingBody + "\t|" + str(self.potentialHazard) + "\t|" + str(self.closeApproachDate) + "\t|" + str(self.estDimAvgM) + "\t\t\t|" + str(self.kilometers_per_second) + "\t|" + str(self.missDistKM) + "\n")
-		
-	
+		# return str("|"+self.asteroidName + "\t\t|" + self.orbitingBody + "\t|" + str(self.potentialHazard) + "\t|" + str(self.closeApproachDate) + "\t|" + str(self.estDimAvgM) + "\t\t|" + str(self.kilometers_per_second) + "\t\t|" + str(self.missDistKM) + "\t|" + str(self.asteroidColour) + "\n")
+		return str("|"+ self.lengthTabCheck(self.asteroidName, 15) + self.orbitingBody + "\t|" + str(self.potentialHazard) + "\t|" + str(self.closeApproachDate) + "\t|" + str(self.estDimAvgM) + "\t\t|" + str(self.kilometers_per_second) + "\t\t|" + str(self.missDistKM) + "\t|" + str(self.asteroidColour) + "\n")
+
+
+
 	def listToString(asteroidList):
-		asteroidString = "Asteroid Name \t\t|Orbits \t|Hazard\t|Approach Date\t|Estimated Diameter M\t|Speed Km/S\t|Miss Distance Km \n"
+		asteroidString = "|Asteroid Name\t\t\t|Orbits \t|Hazard\t|Approach Date\t|Est Diameter M\t|Speed Km/S\t\t|Miss Distance Km\t\t|Colour\n"
 		for z in range(0, len(asteroidList)):
 			asteroidString = str(asteroidString) + str(asteroidList[z].ToRow())
-		print (asteroidString)
+		print(asteroidString)
 		return asteroidString

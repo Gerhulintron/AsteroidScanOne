@@ -13,7 +13,7 @@ def makeAsteroidInput():
 
 	titleLabel = Label(topFrame, text="Asteroid Tracker")
 	instructionLabel = Label(topFrame, text="Enter a Date: ")
-	dateLabel = Label(topFrame, text="dd/mm/yy")
+	dateLabel = Label(topFrame, text="dd/mm/yyyy")
 
 	dayEntry = Entry(topFrame)
 	monthEntry = Entry(topFrame)
@@ -37,5 +37,5 @@ def makeAsteroidInput():
 
 	#scrollbar.pack( side = RIGHT, fill = Y )
 	root.mainloop()
-	
+
 makeAsteroidInput()

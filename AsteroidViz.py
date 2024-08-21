@@ -26,13 +26,13 @@ class AsteroidViz:
 		# vizPen.pendown()
 		# vizPen.write(asteroidName, False, align = "left",  font=("Felix Titling", 24, "bold"))
 		# vizPen.penup()
-		vizPen.goto(-490, -350)
+		vizPen.goto(-600, -400)
 		vizPen.pendown()
-		vizPen.write(asteroidString, False, align="left",  font=("Tahoma", 12, "normal"))
+		vizPen.write(asteroidString, True, align="left",  font=("Tahoma", 12, "normal"))
 		vizPen.penup()
 		
 		
-	def makeViz(self, vizPen, missDistKM, avgDiam, asteroidName):
+	def makeViz(self, vizPen, missDistKM, avgDiam, asteroidName, asteroidColour):
 		print("-----------------------")
 		print("Turtles")
 		
@@ -41,8 +41,6 @@ class AsteroidViz:
 		vizPen.penup()
 		vizPen.home()
 		vizPen.penup()
-
-
 
 		
 		#Draw "Earth"
@@ -95,13 +93,14 @@ class AsteroidViz:
 		
 		#Average estimated diameter
 		vizPen.goto(0, float(missDistKM)/1000000)
-		vizPen.fillcolor(str(randomColour()))
+		# vizPen.fillcolor(str(randomColour()))
+		vizPen.fillcolor(asteroidColour)
 #		vizPen.fillcolor("#2D1445")
 		vizPen.begin_fill()
 		vizPen.circle(float(avgDiam))
 		vizPen.end_fill()
 		vizPen.penup()
-		
+
 		#Draw "Miss Distance" and turn right?
 		# vizPen.goto(0,0)
 		# vizPen.pendown()
@@ -125,7 +124,7 @@ class AsteroidViz:
 		
 		#Write max diameter
 		# vizPen.goto(200, maxDiam)
-		# vizPen.pendown()		
+		# vizPen.pendown()
 		# vizPen.write("Estimated Maximum Diameter: \n" + str(maxDiam) + " M", False, align="center",  font=("Tahoma", 16, "normal"))
 		# vizPen.penup()
 		
@@ -134,7 +133,8 @@ class AsteroidViz:
 		# vizPen.pendown()
 		# vizPen.write("Miss Distance: \n" + str(missDistKM) + " M", False,  font=("Tahoma", 16, "normal"))
 		# vizPen.left(90)
-		# vizPen.penup()	
+		# vizPen.penup()
+
 
 #----------------------------------
 #Previous version, draws min and max diam
